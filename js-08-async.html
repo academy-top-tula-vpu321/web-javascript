@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // let promise = new Promise(function(resolve, reject){
+        //     // executor
+        //     // if executer no error - resolve()
+        //     // if executer with error - reject()
+
+        //     // state (pending, fulfilled, rejected)
+        //     // result
+        // });
+        //promise.then(function(result){}, function(error){});
+
+        let promise2 = new Promise(function(resolve, reject){
+            setTimeout(() => resolve("good work"), 2000);
+        });
+
+        promise2.then(
+            result => console.log(result),
+            error => console.log(error)
+        );
+
+        async function func(){
+            let promise2 = new Promise(function(resolve, reject){
+                setTimeout(() => resolve("good work"), 2000);
+            });
+            let result = await promise2;
+            return result;
+        };
+        let res = func();
+        console.log(res);
+        
+        try{
+            throw new Error("error!");
+        }
+        catch(exeption){
+
+        }
+        finally{
+            
+        }
+
+    </script>
+</body>
+</html>

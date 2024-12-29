@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let user = {};
+        let person = new Object();
+
+        let bob = {
+            name: "Bobby",
+            age: 28,
+            skilld: ["C++", "C#", "JavaScript"],
+            "birth date": new Date(1985, 3, 20),
+            info: function(){
+                console.log(`Name: ${this.name}, Age: ${this.age}`);
+            },
+
+            get Age(){
+                return this.age;
+            },
+
+            set Age(value){
+                this.age = value;
+            },
+        };
+
+        bob.info();
+        console.log(bob.name);
+        console.log(bob["birth date"]);
+        bob.Age = 26;
+
+        user.name = "Sammy";
+        user["age"] = 27;
+        user.name = "Poppy";
+        delete user.age;
+
+        console.log("name" in bob);
+
+        for(let prop in bob)
+            console.log(`${prop} => ${bob[prop]}`);
+            
+        let bobJson = JSON.stringify(bob, null, 2);
+        console.log(bobJson);
+        
+        let bobCopy = JSON.parse(bobJson);
+        console.log(bobCopy);
+
+    </script>
+</body>
+</html>

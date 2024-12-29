@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div>First div</div>
+    <div>Second div
+        
+    </div>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <div>
+        <p>
+            <h1></h1>
+            <span>
+                <b></b>
+            </span>
+        </p>
+    </div>
+
+    <script>
+        // let elements = document.body.children;
+        // for(let e of elements)
+        //     console.log(e);
+
+        domLog(document.body);
+        
+        function domLog(elem, tab = 0){
+            for(let child of elem.children)
+            {
+                console.log(tabs(tab) + child.tagName);
+                if(child.children.length > 0)
+                    domLog(child, tab + 1);
+            }
+        }
+
+        function tabs(count){
+            str = "";
+            for(let i = 0; i < count; i++)
+                str += "\t";
+            return str;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // function - constructor
+        function User(login, password){
+            this.login = login;
+            this.password = password;
+            this.info = function(){
+                console.log(this.login);
+            };
+        }
+
+        let admin = new User("admin", "qwerty");
+        console.log(admin);
+
+        function Person(){
+            this.name = "";
+            this.age = 0;
+        }
+
+        let person = new Person();
+        console.log(person);
+
+        // Classes
+        class Employee{
+            constructor(name = "", age = 0){
+                this.name = name;
+                this.age = age;
+            }
+
+            static compareName(e1, e2){
+                return e1.name.localeCompare(e2.name);
+            }
+
+            static compareAge(e1, e2){
+                return e1.age - e2.age;
+            }
+        }
+
+        let manager = new Employee();
+        let tester = new Employee("Tommy", 26);
+
+        console.log(typeof(Employee));
+
+        let employees = [
+            new Employee("Sammy", 28),
+            new Employee("Bobby", 43),
+            new Employee("Tommy", 19),
+            new Employee("Jimmy", 34),
+            new Employee("Lenny", 21)
+        ];
+
+        employees.sort(Employee.compareAge);
+        employees.forEach(e => {
+            console.log(e.name + " " + e.age);
+        });
+
+
+        class Shape{
+            _x = 0;
+            _y = 0;
+
+            static PI = 3.14;
+
+            constructor(x, y){
+                this._x = x;
+                this._y = y;
+            }
+
+            toString(){
+                return `x: ${this.x}, y: ${this.y}`;
+            }
+        }
+
+        class Rectangle extends Shape{
+
+            #width = 0;
+
+            constructor(x, y, width, height){
+                super(x, y);
+                this.width = width;
+                this.height = height;
+            }
+
+            get width(){
+                return this.#width;
+            }
+
+            set width(value){
+                this.#width = value;
+            }
+
+            toString(){
+                return `${super.toString()}, width: ${this.width}, height: ${this.height}`;
+            }
+        }
+        
+        let rect = new Rectangle(0, 0, 20, 30);
+        console.log(rect);
+        rect.width = 200;
+        
+        let pi = Shape.PI;
+        let shape = new Shape(10, 20);
+        shape._x = 50;
+        
+
+    </script>
+</body>
+</html>

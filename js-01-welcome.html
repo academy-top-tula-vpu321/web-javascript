@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let n = 10;
+
+        let obj = {
+            name: "Bobby",
+            age: 28
+        }
+
+        function add(a, b){
+            return a + b;
+        }
+
+        let mult = (a, b) => a * b;
+
+        function getOper(sign){
+            switch(sign){
+                case '+': return add;
+                case '*': return mult;
+            }
+        }
+
+        let oper = getOper('*');
+
+        let calc = (a, b, operator) => {
+            return operator(a, b);
+        };
+
+        console.log(calc(10, 20, oper));
+
+
+        let x = 100;
+
+        let f = () => {
+            let y = 500;
+            return x + 200;
+        }
+
+        // console.log(f());
+
+        // x = 500;
+        
+        // console.log(f());
+
+        function getCounter(begin = 1){
+            let n = begin;
+            return function(){
+                return n++;
+            }
+        }
+        let counter = getCounter(10)
+        for(let i = 0; i < 5; i++)
+            console.log(counter());
+        
+        Math.floor(10.8); // 10
+        Math.ceil(10.2); // 11
+        Math.round(10.49);
+
+        console.log(0.1 + 0.2 >= 0.3);
+
+        let a = 1000;
+        a = 1.45e6;
+
+        a = "Hello";
+        a = 'World';
+
+        let array = [];
+        array = new Array();
+
+        let dict = new Map();
+        let set = new Set();
+
+        NaN
+        undefined
+        let g;
+
+        let s = "200" + 100 + 300;
+        console.log(s);
+        
+        
+    </script>
+</body>
+</html>

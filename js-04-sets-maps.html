@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let dict = new Map();
+        dict.set(71, "Tula");
+        dict.set(38, "Irkutsk");
+        dict.set(71, "Tulskaya obl")
+            .set(95, "Moscow");
+        
+        dict.get(71);
+
+        for(let key of dict.keys())
+            console.log(key + " => " + dict.get(key));
+
+        for(let value of dict.values())
+            console.log(value);
+
+        for(let pair of dict)
+            console.log(pair);
+        /*
+        .has(key) => boolean
+        .delete(key)
+        .size
+        .clear()
+        */
+
+        let numbers = new Set();
+        numbers.add(100);
+        numbers.add(200);
+        numbers.add(300);
+        numbers.add(100);
+        console.log(numbers);
+
+        /*
+        .delete(value)
+        .has(value) => boolean
+        .size
+        .clear()
+
+        .values() === .keys()
+        */
+
+        for(let num of numbers)
+            console.log(num);
+        numbers.forEach(function(value, valueAgain, set){
+
+        });
+        
+        
+    </script>
+</body>
+</html>
