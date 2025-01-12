@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box200{
+            width: 200px;
+            height: 200px;
+        }
+        .box-green{
+            background-color: darkolivegreen;
+        }
+
+        .box-border{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box-border box200"></div>
+    <script>
+        let box1 = document.getElementById("box1");
+        let width = 200 + 100 + "px";
+        let height = 50 * 2 + "px";
+        let bgColor = "darkred";
+
+        // box1.style.width = width;
+        // box1.style.height = height;
+        // box1.style.backgroundColor = bgColor;
+
+        // box1.style = 
+        //     `
+        //     width: ${width};
+        //     height: ${height};
+        //     background-color: ${bgColor};
+        //     `;
+        
+        //box1.className = "box-green";
+        //box1.classList.add("box-green");
+        box1.classList.toggle("box-green");
+
+        console.log(box1.classList.contains("box-green"));
+
+    </script>
+</body>
+</html>

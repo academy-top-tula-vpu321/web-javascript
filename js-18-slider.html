@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+            background-color: gray;
+            width: 300px;
+            height: 20px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .thumb{
+            width: 10px;
+            height: 30px;
+            border-radius: 3px;
+            position: relative;
+            left: 10px;
+            top: -5px;
+            background-color: darkred;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="slider" class="slider">
+        <div class="thumb"></div>
+    </div>
+
+    <script>
+        let slider = document.getElementById("slider");
+        let thumb = slider.querySelector(".thumb");
+
+        thumb.onmousedown = function(e) {
+            e.preventDefault();
+
+            let shiftX = event.clientX - thumb.getBoundingClientRect().left;
+
+            slider.addEventListener('mousemove', onMouseMove);
+            slider.addEventListener('mouseup', onMouseUp);
+
+            function onMouseMove(event) {
+                let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;
+
+                if (newLeft < 0) {
+                    newLeft = 0;
+                }
+                let rightEdge = slider.offsetWidth - thumb.offsetWidth;
+                if (newLeft > rightEdge) {
+                    newLeft = rightEdge;
+                }
+
+                thumb.style.left = newLeft + 'px';
+            }
+
+            function onMouseUp() {
+                slider.removeEventListener('mouseup', onMouseUp);
+                slider.removeEventListener('mousemove', onMouseMove);
+            }
+
+        };
+
+        thumb.ondragstart = () =>{
+            return flase;
+        }
+    </script>
+</body>
+</html>

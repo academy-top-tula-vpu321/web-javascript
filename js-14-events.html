@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            margin: 10px;
+        }
+
+        .brd{
+            border: 2px solid darkred;
+        }
+
+        .tablo{
+            position: relative;
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button onclick="clickHandler()">Click me</button> -->
+    <button id="btn2">Click me</button>
+
+    <script>
+        let btn2 = document.getElementById("btn2");
+        btn2.addEventListener("click", clickHandler);
+
+        //btn2.removeEventListener("click", clickHandler);
+
+        function clickHandler(e){
+            let div = document.createElement("div");
+            div.className = "box";
+            // div.onclick = function(){
+            //     this.classList.toggle("brd");
+            // }
+            div.addEventListener("click", function(){
+                this.classList.toggle("brd");
+            });
+
+            div.addEventListener("click", function(){
+                this.style.width = 200 + "px";
+            });
+
+            document.body.append(div);
+        }
+
+        let tablo = document.createElement("div");
+        tablo.className = "tablo";
+        document.body.append(tablo);
+
+        document.body.addEventListener("mousemove", (e) =>{
+            tablo.innerText = `x: ${e.clientX}, y: ${e.clientY}`;
+            tablo.style.left = e.clientX + "px";
+            tablo.style.top = e.clientY + "px";
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            position: absolute;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Button</button>
+    <script>
+        let btn = document.getElementById("btn");
+
+        btn.addEventListener("mousedown", (e) => {
+            moveAt(e.pageX, e.pageY);
+
+            document.addEventListener("mousemove", moveCursor);
+
+            btn.addEventListener("mouseup", (e3) => {
+                document.removeEventListener("mousemove", moveCursor);
+                btn.onmouseup = null;
+            });
+
+            function moveAt(x, y){
+                btn.style.left = x - btn.offsetWidth / 2 + "px";
+                btn.style.top = y - btn.offsetHeight / 2 + "px";
+            }
+
+            function moveCursor(e1){
+                moveAt(e1.pageX, e1.pageY);
+            }
+        });
+
+        /*
+        mousedown
+        mousemove
+        mouseup
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="p1" data-text-align="right">
+        Hello world 
+        <b>Hello people</b>
+    </p>
+
+    <input type="text" name="" id="in1">
+    
+    <script>
+        let p1 = document.getElementById("p1");
+        console.log(p1.innerText);
+        console.log(p1.innerHTML);
+        console.log(p1.hasAttribute("my-attr"));
+
+        if(p1.getAttribute("data-text-align") == "right"){
+            p1.style.textAlign = "right";
+        }
+            
+        
+
+        p1.style.color = "#f00";
+        p1.style.backgroundColor = "#0f0";
+
+        let in1 = document.getElementById("in1");
+        console.log(in1.hasAttribute("type"));
+        console.log(in1.getAttribute("type"));
+        console.log(in1.hasAttribute("value"));
+
+        in1.setAttribute("type", "number");
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+
+        document.write("Write method");
+
+
+        let div1 = document.createElement("div");
+        div1.className = "box";
+        div1.innerHTML = "box 1";
+
+        document.body.append(div1);
+
+        let div2 = document.createElement("div");
+        div2.className = "box";
+        div2.innerHTML = "box 2";
+
+        //document.body.append(div2);
+        //document.body.prepend(div2);
+        //div1.after(div2);
+        //div1.before(div2);
+        div1.insertAdjacentHTML("afterbegin", div2);
+        div1.replaceWith(div2);
+
+        let ul = document.createElement("ul");
+        let li = document.createElement("li");
+        li.style.color = "magenta";
+
+        for(let i = 0; i < 5; i++){
+            let linew = li.cloneNode(true);
+            linew.innerText = "Item " + (i + 1);
+            ul.append(linew);
+        }
+
+        document.body.append(ul);
+
+        let li2 = ul.getElementsByTagName("li")[2];
+        li2.remove();
+
+    </script>
+</body>
+</html>
